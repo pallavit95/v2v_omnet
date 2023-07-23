@@ -1,0 +1,91 @@
+file 8605 1689510398                                            
+version 2
+run WithBeaconing-0-20190708-14:20:36-15280
+attr configname WithBeaconing
+attr datetime 20190708-14:20:36
+attr experiment WithBeaconing
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network TutorialScenario
+attr processid 15280
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param *.rsu[*].appl.sendBeacons true
+param *.node[*].appl.sendBeacons true
+param **.debug false
+param **.coreDebug false
+param *.playgroundSizeX 2500m
+param *.playgroundSizeY 2500m
+param *.playgroundSizeZ 50m
+param *.annotations.draw true
+param *.manager.updateInterval 1s
+param *.manager.host "\"localhost\""
+param *.manager.port 9999
+param *.manager.autoShutdown true
+param *.manager.launchConfig "xmldoc(\"intersect.launchd.xml\")"
+param *.rsu[0].mobility.x 135
+param *.rsu[0].mobility.y 135
+param *.rsu[0].mobility.z 0
+param *.rsu[*].applType "\"TutorialAppl\""
+param *.rsu[*].appl.headerLength "80 bit"
+param *.rsu[*].appl.sendBeacons false
+param *.rsu[*].appl.dataOnSch false
+param *.rsu[*].appl.beaconInterval 1s
+param *.rsu[*].appl.beaconUserPriority 1
+param *.rsu[*].appl.dataUserPriority 1
+param *.connectionManager.sendDirect true
+param *.connectionManager.maxInterfDist 2600m
+param *.connectionManager.drawMaxIntfDist false
+param *.**.nic.mac1609_4.useServiceChannel false
+param *.**.nic.mac1609_4.txPower 20mW
+param *.**.nic.mac1609_4.bitrate 6Mbps
+param *.**.nic.phy80211p.sensitivity -89dBm
+param *.**.nic.phy80211p.useThermalNoise true
+param *.**.nic.phy80211p.thermalNoise -110dBm
+param *.**.nic.phy80211p.decider "xmldoc(\"config.xml\")"
+param *.**.nic.phy80211p.analogueModels "xmldoc(\"config.xml\")"
+param *.**.nic.phy80211p.usePropagationDelay true
+param *.**.nic.phy80211p.antenna "xmldoc(\"antenna.xml\", \"/root/Antenna[@id='monopole']\")"
+param *.node[*].applType "\"TutorialAppl\""
+param *.node[*].appl.headerLength "80 bit"
+param *.node[*].appl.sendBeacons false
+param *.node[*].appl.dataOnSch false
+param *.node[*].appl.beaconInterval 1s
+param *.node[*].veinsmobilityType.debug true
+param *.node[*].veinsmobility.x 0
+param *.node[*].veinsmobility.y 0
+param *.node[*].veinsmobility.z 1.895
+
+vector 0 TutorialScenario.node[0].veinsmobility posx ETV
+0	2427 23 11 11 1 1 1 30.422187683101 30.422187683101 30.422187683101 925.50950342582
+0	2617 23 75 75 2 2 1 30.422187683101 30.422187683101 30.422187683101 925.50950342582
+0	5207 598 139 1611 3 26 24 31.360734724777 219.61670749629 2399.5676277474 321038.20669207
+vector 1 TutorialScenario.node[0].veinsmobility posy ETV
+1	2450 14 11 11 1 1 1 136.65 136.65 136.65 18673.2225
+1	2640 14 75 75 2 2 1 136.65 136.65 136.65 18673.2225
+1	4820 387 139 1611 3 26 24 136.65 136.65 3279.6 448157.34
+vector 2 TutorialScenario.node[1].veinsmobility posx ETV
+2	2464 23 11 11 1 1 1 239.57464268111 239.57464268111 239.57464268111 57396.009415782
+2	2654 23 75 75 2 2 1 239.57464268111 239.57464268111 239.57464268111 57396.009415782
+2	8015 590 139 1611 3 26 24 53.582386311948 238.60700153538 4106.263900559 780917.09647931
+vector 3 TutorialScenario.node[1].veinsmobility posy ETV
+3	2677 14 75 75 2 2 1 133.35 133.35 133.35 17782.2225
+3	7628 387 139 1611 3 26 24 133.35 133.35 3200.4 426773.34
+vector 4 TutorialScenario.node[0].veinsmobility speed ETV
+4	2691 23 75 75 2 2 1 1.2109725133778 1.2109725133778 1.2109725133778 1.4664544281565
+4	4220 600 139 1611 3 26 24 1.7606579708384 15.706567547674 210.33977850241 2263.3156227395
+vector 5 TutorialScenario.node[1].veinsmobility speed ETV
+5	7026 602 139 1611 3 26 24 1.7922543505169 15.463704251047 206.7205697238 2184.3229291237
+vector 6 TutorialScenario.node[0].veinsmobility acceleration ETV
+6	3597 623 139 1611 3 26 24 0.52809542888776 0.66041989995167 14.495595034296 8.7936404386858
+vector 7 TutorialScenario.node[0].veinsmobility co2emission ETV
+7	2995 602 139 1611 3 26 24 1.4286800823197 4.4692177704197 69.908467490652 223.81491110105
+vector 8 TutorialScenario.node[1].veinsmobility acceleration ETV
+8	6402 624 139 1611 3 26 24 0.51997029853054 0.65559006863274 14.229509422304 8.4682673087908
+vector 9 TutorialScenario.node[1].veinsmobility co2emission ETV
+9	5805 597 139 1611 3 26 24 1.4380346683728 4.6318613885514 68.644608660234 215.63829756614

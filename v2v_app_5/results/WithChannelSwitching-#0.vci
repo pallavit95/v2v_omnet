@@ -1,0 +1,119 @@
+file 4190 1690135378                                            
+version 2
+run WithChannelSwitching-0-20230723-19:02:10-25264
+attr configname WithChannelSwitching
+attr datetime 20230723-19:02:10
+attr experiment WithChannelSwitching
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network IntersectionScenario
+attr processid 25264
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param *.**.nic.mac1609_4.useServiceChannel true
+param *.node[*].appl.dataOnSch true
+param *.rsu[*].appl.dataOnSch true
+param **.debug false
+param **.coreDebug false
+param *.playgroundSizeX 1000m
+param *.playgroundSizeY 1000m
+param *.playgroundSizeZ 100m
+param *.annotations.draw true
+param *.manager.updateInterval 1s
+param *.manager.host "\"localhost\""
+param *.manager.port 9999
+param *.manager.autoShutdown true
+param *.manager.launchConfig "xmldoc(\"mynet1.launchd.xml\")"
+param *.rsu[0].mobility.x 16
+param *.rsu[0].mobility.y 246
+param *.rsu[0].mobility.z 0
+param *.rsu[1].mobility.x 46
+param *.rsu[1].mobility.y 246
+param *.rsu[1].mobility.z 0
+param *.rsu[2].mobility.x 76
+param *.rsu[2].mobility.y 246
+param *.rsu[2].mobility.z 0
+param *.rsu[3].mobility.x 130
+param *.rsu[3].mobility.y 236
+param *.rsu[3].mobility.z 0
+param *.rsu[4].mobility.x 130
+param *.rsu[4].mobility.y 206
+param *.rsu[4].mobility.z 0
+param *.rsu[5].mobility.x 130
+param *.rsu[5].mobility.y 186
+param *.rsu[5].mobility.z 0
+param *.rsu[6].mobility.x 130
+param *.rsu[6].mobility.y 156
+param *.rsu[6].mobility.z 0
+param *.rsu[7].mobility.x 156
+param *.rsu[7].mobility.y 156
+param *.rsu[7].mobility.z 0
+param *.rsu[8].mobility.x 186
+param *.rsu[8].mobility.y 156
+param *.rsu[8].mobility.z 0
+param *.rsu[9].mobility.x 216
+param *.rsu[9].mobility.y 156
+param *.rsu[9].mobility.z 0
+param *.rsu[10].mobility.x 256
+param *.rsu[10].mobility.y 146
+param *.rsu[10].mobility.z 0
+param *.rsu[11].mobility.x 256
+param *.rsu[11].mobility.y 106
+param *.rsu[11].mobility.z 0
+param *.rsu[12].mobility.x 256
+param *.rsu[12].mobility.y 66
+param *.rsu[12].mobility.z 0
+param *.rsu[*].applType "\"IntersectionApp\""
+param *.rsu[*].appl.headerLength "80 bit"
+param *.rsu[*].appl.sendBeacons false
+param *.rsu[*].appl.dataOnSch false
+param *.rsu[*].appl.beaconInterval 1s
+param *.rsu[*].appl.beaconUserPriority 1
+param *.rsu[*].appl.dataUserPriority 1
+param *.connectionManager.sendDirect true
+param *.connectionManager.maxInterfDist 30m
+param *.connectionManager.drawMaxIntfDist true
+param *.rsu[*].connectionManager.maxInterfDist 10m
+param *.rsu[*].connectionManager.drawMaxIntfDist true
+param *.**.nic.mac1609_4.useServiceChannel false
+param *.**.nic.mac1609_4.txPower 20mW
+param *.**.nic.mac1609_4.bitrate 6Mbps
+param *.**.nic.phy80211p.sensitivity -89dBm
+param *.**.nic.phy80211p.useThermalNoise true
+param *.**.nic.phy80211p.thermalNoise -110dBm
+param *.**.nic.phy80211p.decider "xmldoc(\"config.xml\")"
+param *.**.nic.phy80211p.analogueModels "xmldoc(\"config.xml\")"
+param *.**.nic.phy80211p.usePropagationDelay true
+param *.**.nic.phy80211p.antenna "xmldoc(\"antenna.xml\", \"/root/Antenna[@id='monopole']\")"
+param *.node[*].applType "\"IntersectionApp\""
+param *.node[*].appl.headerLength "80 bit"
+param *.node[*].appl.sendBeacons false
+param *.node[*].appl.dataOnSch false
+param *.node[*].appl.beaconInterval 1s
+param *.node[*].veinsmobilityType.debug true
+param *.node[*].veinsmobility.x 0
+param *.node[*].veinsmobility.y 0
+param *.node[*].veinsmobility.z 0
+
+vector 0 IntersectionScenario.node[0].veinsmobility posx ETV
+vector 1 IntersectionScenario.node[0].veinsmobility posy ETV
+vector 2 IntersectionScenario.node[1].veinsmobility posx ETV
+vector 3 IntersectionScenario.node[1].veinsmobility posy ETV
+vector 4 IntersectionScenario.node[2].veinsmobility posx ETV
+vector 5 IntersectionScenario.node[2].veinsmobility posy ETV
+vector 6 IntersectionScenario.node[3].veinsmobility posx ETV
+vector 7 IntersectionScenario.node[3].veinsmobility posy ETV
+0	4028 15 420 420 1 1 1 126.6 126.6 126.6 16027.56
+1	4043 25 420 420 1 1 1 318.23885714286 318.23885714286 318.23885714286 101275.97019559
+2	4068 25 420 420 1 1 1 31.761142857143 31.761142857143 31.761142857143 1008.7701955918
+3	4093 15 420 420 1 1 1 126.6 126.6 126.6 16027.56
+4	4108 15 420 420 1 1 1 226.6 226.6 226.6 51347.56
+5	4123 25 420 420 1 1 1 220.90748181818 220.90748181818 220.90748181818 48800.11552325
+6	4148 25 420 420 1 1 1 31.761142857143 31.761142857143 31.761142857143 1008.7701955918
+7	4173 15 420 420 1 1 1 226.6 226.6 226.6 51347.56
+

@@ -1,0 +1,8 @@
+<configuration>
+
+    <input>
+        <net-file value="mynet1.net.xml"/>
+        <route-files value="mynet1.rou.xml"/>
+    </input>
+
+<remote-port value="59228"/><seed value="0"/><random value="false"/></configuration>

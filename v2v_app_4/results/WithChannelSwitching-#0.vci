@@ -1,0 +1,127 @@
+file 26557 1690123437                                           
+version 2
+run WithChannelSwitching-0-20230723-15:42:56-17188
+attr configname WithChannelSwitching
+attr datetime 20230723-15:42:56
+attr experiment WithChannelSwitching
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network IntersectionScenario
+attr processid 17188
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param *.**.nic.mac1609_4.useServiceChannel true
+param *.node[*].appl.dataOnSch true
+param *.rsu[*].appl.dataOnSch true
+param **.debug false
+param **.coreDebug false
+param *.playgroundSizeX 1000m
+param *.playgroundSizeY 1000m
+param *.playgroundSizeZ 500m
+param *.annotations.draw true
+param *.manager.updateInterval 1s
+param *.manager.host "\"localhost\""
+param *.manager.port 9999
+param *.manager.autoShutdown true
+param *.manager.launchConfig "xmldoc(\"mynet1.launchd.xml\")"
+param *.rsu[0].mobility.x 108.73
+param *.rsu[0].mobility.y 111.64
+param *.rsu[0].mobility.z 0
+param *.rsu[1].mobility.x 108.73
+param *.rsu[1].mobility.y 166.38
+param *.rsu[1].mobility.z 0
+param *.rsu[2].mobility.x 0
+param *.rsu[2].mobility.y 100.73
+param *.rsu[2].mobility.z 0
+param *.rsu[3].mobility.x 0
+param *.rsu[3].mobility.y 100.78
+param *.rsu[3].mobility.z 0
+param *.rsu[4].mobility.x 0
+param *.rsu[4].mobility.y 100.82
+param *.rsu[4].mobility.z 0
+param *.rsu[*].applType "\"IntersectionApp\""
+param *.rsu[*].appl.headerLength "80 bit"
+param *.rsu[*].appl.sendBeacons false
+param *.rsu[*].appl.dataOnSch false
+param *.rsu[*].appl.beaconInterval 1s
+param *.rsu[*].appl.beaconUserPriority 1
+param *.rsu[*].appl.dataUserPriority 1
+param *.connectionManager.sendDirect true
+param *.connectionManager.maxInterfDist 60m
+param *.connectionManager.drawMaxIntfDist false
+param *.**.nic.mac1609_4.useServiceChannel false
+param *.**.nic.mac1609_4.txPower 20mW
+param *.**.nic.mac1609_4.bitrate 6Mbps
+param *.**.nic.phy80211p.sensitivity -89dBm
+param *.**.nic.phy80211p.useThermalNoise true
+param *.**.nic.phy80211p.thermalNoise -110dBm
+param *.**.nic.phy80211p.decider "xmldoc(\"config.xml\")"
+param *.**.nic.phy80211p.analogueModels "xmldoc(\"config.xml\")"
+param *.**.nic.phy80211p.usePropagationDelay true
+param *.**.nic.phy80211p.antenna "xmldoc(\"antenna.xml\", \"/root/Antenna[@id='monopole']\")"
+param *.node[*].applType "\"IntersectionApp\""
+param *.node[*].appl.headerLength "80 bit"
+param *.node[*].appl.sendBeacons false
+param *.node[*].appl.dataOnSch false
+param *.node[*].appl.beaconInterval 1s
+param *.node[*].veinsmobilityType.debug true
+param *.node[*].veinsmobility.x 0
+param *.node[*].veinsmobility.y 0
+param *.node[*].veinsmobility.z 0
+
+vector 0 IntersectionScenario.node[0].veinsmobility posx ETV
+vector 1 IntersectionScenario.node[0].veinsmobility posy ETV
+vector 2 IntersectionScenario.node[1].veinsmobility posx ETV
+vector 3 IntersectionScenario.node[1].veinsmobility posy ETV
+vector 4 IntersectionScenario.node[2].veinsmobility posx ETV
+vector 5 IntersectionScenario.node[2].veinsmobility posy ETV
+vector 6 IntersectionScenario.node[3].veinsmobility posx ETV
+vector 7 IntersectionScenario.node[3].veinsmobility posy ETV
+vector 8 IntersectionScenario.node[0].veinsmobility speed ETV
+vector 9 IntersectionScenario.node[1].veinsmobility speed ETV
+vector 10 IntersectionScenario.node[2].veinsmobility speed ETV
+vector 11 IntersectionScenario.node[3].veinsmobility speed ETV
+vector 12 IntersectionScenario.node[0].veinsmobility acceleration ETV
+vector 13 IntersectionScenario.node[0].veinsmobility co2emission ETV
+vector 14 IntersectionScenario.node[1].veinsmobility acceleration ETV
+vector 15 IntersectionScenario.node[1].veinsmobility co2emission ETV
+vector 16 IntersectionScenario.node[2].veinsmobility acceleration ETV
+vector 17 IntersectionScenario.node[2].veinsmobility co2emission ETV
+vector 18 IntersectionScenario.node[3].veinsmobility acceleration ETV
+vector 19 IntersectionScenario.node[3].veinsmobility co2emission ETV
+vector 20 IntersectionScenario.node[4].veinsmobility posx ETV
+vector 21 IntersectionScenario.node[4].veinsmobility posy ETV
+vector 22 IntersectionScenario.node[4].veinsmobility speed ETV
+vector 23 IntersectionScenario.node[4].veinsmobility acceleration ETV
+vector 24 IntersectionScenario.node[4].veinsmobility co2emission ETV
+13	4353 686 887 18644 3 30 28 0.973 9.7218347010342 79.569134545165 350.3574234812
+12	5039 813 887 18644 3 30 28 -3.529032482135 2.4054226770764 12.262617545864 58.030195434454
+8	5852 783 541 18644 2 30 29 0.52876551636167 13.765072078547 221.93714369159 2107.0851424494
+1	6635 809 190 18644 1 30 30 53.327928386954 318.23885714286 6335.9851849338 1533054.3030665
+0	7444 509 190 18644 1 30 30 126.6 126.6 3798 480826.8
+17	7953 772 887 21059 3 34 32 0.973 6.2339124063065 57.975134891291 160.09993995746
+16	8725 946 887 21059 3 34 32 -0.65230179026257 2.4203621656401 7.5455364041962 20.868709585719
+10	9671 925 541 21059 2 34 33 1.8293019986944 9.9490558743477 169.66960811382 982.22257684812
+5	10596 915 190 21059 1 34 34 56.874703552322 220.90748181818 5583.931705296 977856.72657956
+4	11511 581 190 21059 1 34 34 226.6 226.6 7704.4 1745817.04
+24	12092 825 2078 22675 6 37 32 0.973 8.1720849382271 83.485843908824 334.25008178526
+23	12917 963 2078 22675 6 37 32 -0.8337713149609 2.4867319139419 10.463513113288 26.131510886017
+22	13880 935 1649 22675 5 37 33 2.5262731315568 13.806608248674 353.64231452015 4055.5606494929
+21	14815 860 1233 22675 4 37 34 33.026548104801 226.6 4901.6019475863 884542.5071731
+20	15675 833 1233 22675 4 37 34 31.761142857143 205.21509931742 4004.7263210086 539695.28998052
+19	16508 886 887 22675 3 37 35 0.973 6.5838460426916 79.959403212102 250.96875318859
+18	17394 1028 887 22675 3 37 35 -4.3238346419064 2.5740160259651 7.5950006491272 69.304020327949
+11	18422 1014 541 22675 2 37 36 0.020855425867217 9.9217068935512 273.24120774469 2385.614069584
+7	19436 782 190 22675 1 37 37 52.600346097094 226.6 5954.4443800178 1062879.0251361
+6	20218 904 190 22675 1 37 37 31.761142857143 226.6 5364.728701277 936906.00583169
+15	21122 1058 887 24516 3 44 42 0.973 7.9806540879539 100.88835002816 394.60406999056
+14	22180 1249 887 24516 3 44 42 -4.0646461272096 2.5823568655644 11.895411320366 74.2177239982
+9	23429 1168 541 24516 2 44 43 0 13.78195376737 252.75808403872 2257.9431174479
+3	24597 761 190 24516 1 44 44 126.6 126.6 5570.4 705212.64
+2	25358 1197 190 24516 1 44 44 31.761142857143 302.95613027135 5959.4243341646 1040881.7913077
+
