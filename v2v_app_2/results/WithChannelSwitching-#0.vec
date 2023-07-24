@@ -1,0 +1,134 @@
+version 2
+run WithChannelSwitching-0-20230716-23:16:10-19540
+attr configname WithChannelSwitching
+attr datetime 20230716-23:16:10
+attr experiment WithChannelSwitching
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network IntersectionScenario
+attr processid 19540
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param *.**.nic.mac1609_4.useServiceChannel true
+param *.node[*].appl.dataOnSch true
+param *.rsu[*].appl.dataOnSch true
+param *.rsu[*].appl.sendBeacons false
+param *.node[*].appl.sendBeacons false
+param **.debug false
+param **.coreDebug false
+param *.playgroundSizeX 2500m
+param *.playgroundSizeY 2500m
+param *.playgroundSizeZ 50m
+param *.annotations.draw true
+param *.manager.updateInterval 1s
+param *.manager.host "\"localhost\""
+param *.manager.port 9999
+param *.manager.autoShutdown true
+param *.manager.launchConfig "xmldoc(\"intersect.launchd.xml\")"
+param *.rsu[0].mobility.x 135
+param *.rsu[0].mobility.y 135
+param *.rsu[0].mobility.z 0
+param *.rsu[*].applType "\"IntersectionApp\""
+param *.rsu[*].appl.headerLength "80 bit"
+param *.rsu[*].appl.sendBeacons false
+param *.rsu[*].appl.dataOnSch false
+param *.rsu[*].appl.beaconInterval 1s
+param *.rsu[*].appl.beaconUserPriority 1
+param *.rsu[*].appl.dataUserPriority 1
+param *.connectionManager.sendDirect true
+param *.connectionManager.maxInterfDist 50m
+param *.connectionManager.drawMaxIntfDist false
+param *.**.nic.mac1609_4.useServiceChannel false
+param *.**.nic.mac1609_4.txPower 20mW
+param *.**.nic.mac1609_4.bitrate 6Mbps
+param *.**.nic.phy80211p.sensitivity -89dBm
+param *.**.nic.phy80211p.useThermalNoise true
+param *.**.nic.phy80211p.thermalNoise -110dBm
+param *.**.nic.phy80211p.decider "xmldoc(\"config.xml\")"
+param *.**.nic.phy80211p.analogueModels "xmldoc(\"config.xml\")"
+param *.**.nic.phy80211p.usePropagationDelay true
+param *.**.nic.phy80211p.antenna "xmldoc(\"antenna.xml\", \"/root/Antenna[@id='monopole']\")"
+param *.node[*].applType "\"IntersectionApp\""
+param *.node[*].appl.headerLength "80 bit"
+param *.node[*].appl.sendBeacons false
+param *.node[*].appl.dataOnSch false
+param *.node[*].appl.beaconInterval 1s
+param *.node[*].veinsmobilityType.debug true
+param *.node[*].veinsmobility.x 0
+param *.node[*].veinsmobility.y 0
+param *.node[*].veinsmobility.z 1.895
+
+vector 0 IntersectionScenario.node[0].veinsmobility posx ETV
+vector 1 IntersectionScenario.node[0].veinsmobility posy ETV
+vector 2 IntersectionScenario.node[1].veinsmobility posx ETV
+vector 3 IntersectionScenario.node[1].veinsmobility posy ETV
+vector 4 IntersectionScenario.node[2].veinsmobility posx ETV
+vector 5 IntersectionScenario.node[2].veinsmobility posy ETV
+vector 6 IntersectionScenario.node[0].veinsmobility speed ETV
+vector 7 IntersectionScenario.node[1].veinsmobility speed ETV
+vector 8 IntersectionScenario.node[2].veinsmobility speed ETV
+vector 9 IntersectionScenario.node[3].veinsmobility posx ETV
+vector 10 IntersectionScenario.node[3].veinsmobility posy ETV
+vector 11 IntersectionScenario.node[0].veinsmobility acceleration ETV
+vector 12 IntersectionScenario.node[0].veinsmobility co2emission ETV
+vector 13 IntersectionScenario.node[1].veinsmobility acceleration ETV
+vector 14 IntersectionScenario.node[1].veinsmobility co2emission ETV
+vector 15 IntersectionScenario.node[2].veinsmobility acceleration ETV
+vector 16 IntersectionScenario.node[2].veinsmobility co2emission ETV
+vector 17 IntersectionScenario.node[3].veinsmobility speed ETV
+0	30	1	136.65
+0	144	2	136.65
+0	261	3	136.65
+0	418	4	136.65
+1	30	1	238.85360736756
+1	144	2	238.85360736756
+1	261	3	235.78065121991
+1	418	4	230.81562095463
+2	30	1	133.35
+2	144	2	133.35
+2	261	3	133.35
+2	418	4	133.35
+3	30	1	33.147605805797
+3	144	2	33.147605805797
+3	261	3	36.101889575305
+3	418	4	41.009930776659
+4	30	1	31.166835415479
+4	144	2	31.166835415479
+4	261	3	34.259723847976
+4	418	4	39.222219355507
+5	30	1	136.65
+5	144	2	136.65
+5	261	3	136.65
+5	418	4	136.65
+6	144	2	3.8745059669594
+6	261	3	5.9246777811734
+6	418	4	7.9494851231663
+7	144	2	3.8824649780214
+7	261	3	5.8253163225943
+7	418	4	8.0858205354603
+8	144	2	3.9022789811668
+8	261	3	5.8434852189058
+8	418	4	7.6608873784332
+9	261	3	30.250587788592
+9	418	4	30.250587788592
+10	261	3	136.65
+10	418	4	136.65
+11	261	3	2.050171814214
+11	418	4	2.0248073419929
+12	261	3	4.3423505872489
+12	418	4	5.4190692030107
+13	261	3	1.9428513445728
+13	418	4	2.2605042128661
+14	261	3	4.1368459397194
+14	418	4	5.9539020975443
+15	261	3	1.9412062377389
+15	418	4	1.8174021595274
+16	261	3	4.1440842090962
+16	418	4	4.8765178939636
+17	418	4	2.8196734650404
+

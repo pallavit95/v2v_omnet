@@ -1,0 +1,103 @@
+file 4721 1689545847                                            
+version 2
+run WithChannelSwitching-0-20230716-23:16:10-19540
+attr configname WithChannelSwitching
+attr datetime 20230716-23:16:10
+attr experiment WithChannelSwitching
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network IntersectionScenario
+attr processid 19540
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param *.**.nic.mac1609_4.useServiceChannel true
+param *.node[*].appl.dataOnSch true
+param *.rsu[*].appl.dataOnSch true
+param *.rsu[*].appl.sendBeacons false
+param *.node[*].appl.sendBeacons false
+param **.debug false
+param **.coreDebug false
+param *.playgroundSizeX 2500m
+param *.playgroundSizeY 2500m
+param *.playgroundSizeZ 50m
+param *.annotations.draw true
+param *.manager.updateInterval 1s
+param *.manager.host "\"localhost\""
+param *.manager.port 9999
+param *.manager.autoShutdown true
+param *.manager.launchConfig "xmldoc(\"intersect.launchd.xml\")"
+param *.rsu[0].mobility.x 135
+param *.rsu[0].mobility.y 135
+param *.rsu[0].mobility.z 0
+param *.rsu[*].applType "\"IntersectionApp\""
+param *.rsu[*].appl.headerLength "80 bit"
+param *.rsu[*].appl.sendBeacons false
+param *.rsu[*].appl.dataOnSch false
+param *.rsu[*].appl.beaconInterval 1s
+param *.rsu[*].appl.beaconUserPriority 1
+param *.rsu[*].appl.dataUserPriority 1
+param *.connectionManager.sendDirect true
+param *.connectionManager.maxInterfDist 50m
+param *.connectionManager.drawMaxIntfDist false
+param *.**.nic.mac1609_4.useServiceChannel false
+param *.**.nic.mac1609_4.txPower 20mW
+param *.**.nic.mac1609_4.bitrate 6Mbps
+param *.**.nic.phy80211p.sensitivity -89dBm
+param *.**.nic.phy80211p.useThermalNoise true
+param *.**.nic.phy80211p.thermalNoise -110dBm
+param *.**.nic.phy80211p.decider "xmldoc(\"config.xml\")"
+param *.**.nic.phy80211p.analogueModels "xmldoc(\"config.xml\")"
+param *.**.nic.phy80211p.usePropagationDelay true
+param *.**.nic.phy80211p.antenna "xmldoc(\"antenna.xml\", \"/root/Antenna[@id='monopole']\")"
+param *.node[*].applType "\"IntersectionApp\""
+param *.node[*].appl.headerLength "80 bit"
+param *.node[*].appl.sendBeacons false
+param *.node[*].appl.dataOnSch false
+param *.node[*].appl.beaconInterval 1s
+param *.node[*].veinsmobilityType.debug true
+param *.node[*].veinsmobility.x 0
+param *.node[*].veinsmobility.y 0
+param *.node[*].veinsmobility.z 1.895
+
+vector 0 IntersectionScenario.node[0].veinsmobility posx ETV
+vector 1 IntersectionScenario.node[0].veinsmobility posy ETV
+vector 2 IntersectionScenario.node[1].veinsmobility posx ETV
+vector 3 IntersectionScenario.node[1].veinsmobility posy ETV
+vector 4 IntersectionScenario.node[2].veinsmobility posx ETV
+vector 5 IntersectionScenario.node[2].veinsmobility posy ETV
+vector 6 IntersectionScenario.node[0].veinsmobility speed ETV
+vector 7 IntersectionScenario.node[1].veinsmobility speed ETV
+vector 8 IntersectionScenario.node[2].veinsmobility speed ETV
+vector 9 IntersectionScenario.node[3].veinsmobility posx ETV
+vector 10 IntersectionScenario.node[3].veinsmobility posy ETV
+vector 11 IntersectionScenario.node[0].veinsmobility acceleration ETV
+vector 12 IntersectionScenario.node[0].veinsmobility co2emission ETV
+vector 13 IntersectionScenario.node[1].veinsmobility acceleration ETV
+vector 14 IntersectionScenario.node[1].veinsmobility co2emission ETV
+vector 15 IntersectionScenario.node[2].veinsmobility acceleration ETV
+vector 16 IntersectionScenario.node[2].veinsmobility co2emission ETV
+vector 17 IntersectionScenario.node[3].veinsmobility speed ETV
+0	3587 63 30 418 1 4 4 136.65 136.65 546.6 74692.89
+1	3650 99 30 418 1 4 4 230.81562095463 238.85360736756 944.30348690967 222970.45787135
+2	3749 63 30 418 1 4 4 133.35 133.35 533.4 71128.89
+3	3812 99 30 418 1 4 4 33.147605805797 41.009930776659 143.40703196356 5182.6883945269
+4	3911 99 30 418 1 4 4 31.166835415479 39.222219355507 135.81561403444 4654.8544289422
+5	4010 63 30 418 1 4 4 136.65 136.65 546.6 74692.89
+6	4073 75 144 418 2 4 3 3.8745059669594 7.9494851231663 17.748668871299 113.30791702218
+7	4148 75 144 418 2 4 3 3.8824649780214 8.0858205354603 17.793601836076 114.38833829552
+8	4223 75 144 418 2 4 3 3.9022789811668 7.6608873784332 17.406651578506 108.06329617546
+9	4298 50 261 418 3 4 2 30.250587788592 30.250587788592 60.501175577184 1830.1961231106
+10	4348 34 261 418 3 4 2 136.65 136.65 273.3 37346.445
+11	4382 51 261 418 3 4 2 2.0248073419929 2.050171814214 4.0749791562068 8.3030492399856
+12	4433 52 261 418 3 4 2 4.3423505872489 5.4190692030107 9.7614197902596 48.222319649599
+13	4485 52 261 418 3 4 2 1.9428513445728 2.2605042128661 4.2033555574389 8.8845506434938
+14	4537 52 261 418 3 4 2 4.1368459397194 5.9539020975443 10.090748037264 52.562444516116
+15	4589 52 261 418 3 4 2 1.8174021595274 1.9412062377389 3.7586083972664 7.0712322668915
+16	4641 52 261 418 3 4 2 4.1440842090962 4.8765178939636 9.0206021030598 40.953860702228
+17	4693 26 418 418 4 4 1 2.8196734650404 2.8196734650404 2.8196734650404 7.9505584494529
+

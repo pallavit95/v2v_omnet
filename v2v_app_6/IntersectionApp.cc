@@ -55,25 +55,66 @@ void IntersectionApp::handlePositionUpdate(cObject* obj) {
 
         carPositions[carId] = carPos;  // Update the position of the current car
 
-        for (const auto& pair : rsuPositions) { // Assuming rsuPositions is a map of RSU ids to their positions
-            std::string rsuId = pair.first;
-            Coord rsuPos = pair.second;
+//        for (const auto& pair : rsuPositions) { // Assuming rsuPositions is a map of RSU ids to their positions
+//            std::string rsuId = pair.first;
+//            Coord rsuPos = pair.second;
+//
+//            double distance = calculateDistance(carPos, rsuPos);
+//            if (distance <= 30) { // Assuming RSU_COMM_RANGE is the communication range of an RSU
+//                CarMessage* cm = new CarMessage();
+//                populateCMBrodcast(cm);
+//
+//                if (dataOnSch) {
+//                    scheduleAt(computeAsynchronousSendingTime(1, type_SCH), cm);
+//                } else {
+//                    simtime_t delayTimeCars = par("delayTimeCars");
+//                    sendDelayedDown(cm, delayTimeCars);
+//                }
+//
+//                // Log this message exchange
+//                // When a message is exchanged, do:
+//                auto& record = messageExchangeCount[ { carId, rsuId }];
+//                record.first += 1; // increment message count
+//
+//                // Append the current simTime to the string.
+//                if (!record.second.empty()) {
+//                    record.second += ",";
+//                }
+//                record.second += std::to_string((int) simTime().dbl());
+//            }
+//        }
 
-            double distance = calculateDistance(carPos, rsuPos);
-            if (distance <= 30) { // Assuming RSU_COMM_RANGE is the communication range of an RSU
+//         Loop over the positions of all cars and calculate the distances
+        for (const auto& pair : carPositions) {
+            std::string otherCarId = pair.first;
+            Coord otherCarPos = pair.second;
+
+            if (otherCarId == carId) {
+                continue; // Skip self
+            }
+
+            double distance = calculateDistance(carPos, otherCarPos);
+            carDistances[ { carId, otherCarId }] = distance;
+
+            if (distance <= 100) {
                 CarMessage* cm = new CarMessage();
                 populateCMBrodcast(cm);
 
+                //If there is currently data on the channel, the car cannot send the message right then
                 if (dataOnSch) {
+                    //schedule message to self to send later
                     scheduleAt(computeAsynchronousSendingTime(1, type_SCH), cm);
-                } else {
+                }
+                //Send on CCH, because channel switching is disabled
+                else {
+                    //Sends with specified delay in message
                     simtime_t delayTimeCars = par("delayTimeCars");
                     sendDelayedDown(cm, delayTimeCars);
                 }
 
                 // Log this message exchange
                 // When a message is exchanged, do:
-                auto& record = messageExchangeCount[{carId, rsuId}];
+                auto& record = messageExchangeCount[ { carId, otherCarId }];
                 record.first += 1; // increment message count
 
                 // Append the current simTime to the string.
@@ -81,8 +122,11 @@ void IntersectionApp::handlePositionUpdate(cObject* obj) {
                     record.second += ",";
                 }
                 record.second += std::to_string((int) simTime().dbl());
+
             }
+
         }
+
     } else {
         for (int i = 0; i < 13; i++) {
             std::string rsuPath = "rsu[" + std::to_string(i) + "].mobility";

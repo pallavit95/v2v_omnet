@@ -1,0 +1,7 @@
+<routes>
+    <trip id="bus1" depart="0.00" from="E10" to="E3" via="-E1"/>
+    <trip id="bus2" depart="0.00" from="-E4" to="E7" via="E2"/>
+    <trip id="bus3" depart="0.00" from="-E6" to="E5"/>
+    <trip id="bus4" depart="0.00" from="E0" to="-E10"/>
+    <trip id="car1" depart="0.00" from="E0" to="E5" via="-E1 E2"/>
+</routes>

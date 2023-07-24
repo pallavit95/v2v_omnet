@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+	<copy file="C:\Users\aggarwpa\Downloads\omnetpp-5.3\samples\v2v_app_6\mynet1.net.xml" />
+	<copy file="C:\Users\aggarwpa\Downloads\omnetpp-5.3\samples\v2v_app_6\mynet1.rou.xml" />
+	<copy file="C:\Users\aggarwpa\Downloads\omnetpp-5.3\samples\v2v_app_6\mynet1.sumocfg" type="config" />
+</launch>
