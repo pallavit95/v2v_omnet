@@ -29,6 +29,9 @@
  * packet CarMessage extends WaveShortMessage
  * {
  *     string helloMsg;
+ *     int priority;
+ *     string rsuId;
+ *     string carId;
  * }
  * </pre>
  */
@@ -36,6 +39,9 @@ class CarMessage : public ::WaveShortMessage
 {
   protected:
     ::omnetpp::opp_string helloMsg;
+    int priority;
+    ::omnetpp::opp_string rsuId;
+    ::omnetpp::opp_string carId;
 
   private:
     void copy(const CarMessage& other);
@@ -56,6 +62,12 @@ class CarMessage : public ::WaveShortMessage
     // field getter/setter methods
     virtual const char * getHelloMsg() const;
     virtual void setHelloMsg(const char * helloMsg);
+    virtual int getPriority() const;
+    virtual void setPriority(int priority);
+    virtual const char * getRsuId() const;
+    virtual void setRsuId(const char * rsuId);
+    virtual const char * getCarId() const;
+    virtual void setCarId(const char * carId);
 };
 
 inline void doParsimPacking(omnetpp::cCommBuffer *b, const CarMessage& obj) {obj.parsimPack(b);}

@@ -11,8 +11,10 @@ Define_Module(IntersectionApp);
 std::map<std::pair<std::string, std::string>, double> IntersectionApp::carDistances;
 std::map<std::string, Coord> IntersectionApp::carPositions;
 std::map<std::string, Coord> IntersectionApp::rsuPositions;
-//std::map<std::pair<std::string, std::string>, std::pair<int, simtime_t>> IntersectionApp::messageExchangeCount;
 std::map<std::pair<std::string, std::string>, std::pair<int, std::string>> IntersectionApp::messageExchangeCount;
+std::priority_queue<CarMessage*, std::vector<CarMessage*>,
+        IntersectionApp::ComparePriority> IntersectionApp::msgQueue;
+std::set<std::string> IntersectionApp::interestingIds = { "car1" };
 
 void IntersectionApp::initialize(int stage) {
     BaseWaveApplLayer::initialize(stage);
@@ -62,8 +64,6 @@ void IntersectionApp::handlePositionUpdate(cObject* obj) {
             double distance = calculateDistance(carPos, rsuPos);
             if (distance <= 30) { // Assuming RSU_COMM_RANGE is the communication range of an RSU
                 CarMessage* cm = new CarMessage();
-                populateCMBrodcast(cm);
-
                 if (dataOnSch) {
                     scheduleAt(computeAsynchronousSendingTime(1, type_SCH), cm);
                 } else {
@@ -71,16 +71,31 @@ void IntersectionApp::handlePositionUpdate(cObject* obj) {
                     sendDelayedDown(cm, delayTimeCars);
                 }
 
-                // Log this message exchange
-                // When a message is exchanged, do:
-                auto& record = messageExchangeCount[{carId, rsuId}];
-                record.first += 1; // increment message count
+                if (interestingIds.count(carId) > 0) {
+                    cm->setPriority(1);  // Set the priority of the message
+                    cm->setRsuId(rsuId.c_str());
+                    cm->setCarId(carId.c_str());
 
-                // Append the current simTime to the string.
-                if (!record.second.empty()) {
-                    record.second += ",";
+                    populateCMBrodcast(cm);
+
+                    // Log this message exchange
+                    // When a message is exchanged, do:
+                    std::string carId = std::string(cm->getCarId());
+                    std::string rsuId = std::string(cm->getRsuId());
+                    auto& record = messageExchangeCount[ { carId, rsuId }];
+                    record.first += 1; // increment message count
+                    // Append the current simTime to the string.
+                    if (!record.second.empty()) {
+                        record.second += ",";
+                    }
+                    record.second += std::to_string((int) simTime().dbl());
+                } else {
+                    cm->setPriority(5);  // Set the priority of the message
+                    cm->setRsuId(rsuId.c_str());
+                    cm->setCarId(carId.c_str());
+                    populateCMBrodcast(cm);
                 }
-                record.second += std::to_string((int) simTime().dbl());
+
             }
         }
     } else {
@@ -119,7 +134,23 @@ void IntersectionApp::handleSelfMsg(cMessage* msg) {
 void IntersectionApp::handleLowerMsg(cMessage* msg) {
     WaveShortMessage* wsm = dynamic_cast<WaveShortMessage*>(msg);
     if (CarMessage* cm = dynamic_cast<CarMessage*>(wsm)) {
-        onCarMessage(cm);
+        msgQueue.push(cm);
+        if (!msgQueue.empty()) {
+            CarMessage* cm = msgQueue.top(); // Get the highest-priority message
+            msgQueue.pop();  // Remove the message from the queue
+//            // Log this message exchange
+//            // When a message is exchanged, do:
+//            std::string carId = std::string(cm->getCarId());
+//            std::string rsuId = std::string(cm->getRsuId());
+//            auto& record = messageExchangeCount[ { carId, rsuId }];
+//            record.first += 1; // increment message count
+//            // Append the current simTime to the string.
+//            if (!record.second.empty()) {
+//                record.second += ",";
+//            }
+//            record.second += std::to_string((int) simTime().dbl());
+            onCarMessage(cm);
+        }
     }
     delete (msg);
 }
@@ -151,5 +182,16 @@ void IntersectionApp::exportMessageExchangeCounts() {
                 << "\n";
     }
 
+    // Log the message queue
+    outputFile << "\nMessage Queue:\n";
+    while (!msgQueue.empty()) {
+        CarMessage* cm = msgQueue.top();
+        std::string carId = std::string(cm->getCarId());
+        std::string rsuId = std::string(cm->getRsuId());
+        int priority = cm->getPriority();
+        outputFile << "CarId: " << carId << ", RSUId: " << rsuId
+                << ", Priority: " << priority << "\n";
+        msgQueue.pop();
+    }
     outputFile.close();
 }

@@ -8,4 +8,7 @@ class WaveShortMessage;
 
 packet CarMessage extends WaveShortMessage {
 	string helloMsg;
+	int priority;
+	string rsuId;
+	string carId;
 }

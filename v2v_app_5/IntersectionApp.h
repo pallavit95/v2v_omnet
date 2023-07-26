@@ -39,6 +39,17 @@ class IntersectionApp : public BaseWaveApplLayer {
         static std::map<std::string, Coord> carPositions;
         static std::map<std::string, Coord> rsuPositions;
         static std::map<std::pair<std::string, std::string>, std::pair<int, std::string>> messageExchangeCount;
+        static std::set<std::string> interestingIds;
+
+
+        struct ComparePriority {
+            bool operator()(const CarMessage* cm1, const CarMessage* cm2) const {
+                return cm1->getPriority() < cm2->getPriority();
+            }
+        };
+
+        static std::priority_queue<CarMessage*, std::vector<CarMessage*>, ComparePriority> msgQueue;
+
 };
 
 #endif /* TUTORIALAPPL_H_ */

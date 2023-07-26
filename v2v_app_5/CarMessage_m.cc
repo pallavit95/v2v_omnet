@@ -181,6 +181,7 @@ Register_Class(CarMessage)
 
 CarMessage::CarMessage(const char *name, short kind) : ::WaveShortMessage(name,kind)
 {
+    this->priority = 0;
 }
 
 CarMessage::CarMessage(const CarMessage& other) : ::WaveShortMessage(other)
@@ -203,18 +204,27 @@ CarMessage& CarMessage::operator=(const CarMessage& other)
 void CarMessage::copy(const CarMessage& other)
 {
     this->helloMsg = other.helloMsg;
+    this->priority = other.priority;
+    this->rsuId = other.rsuId;
+    this->carId = other.carId;
 }
 
 void CarMessage::parsimPack(omnetpp::cCommBuffer *b) const
 {
     ::WaveShortMessage::parsimPack(b);
     doParsimPacking(b,this->helloMsg);
+    doParsimPacking(b,this->priority);
+    doParsimPacking(b,this->rsuId);
+    doParsimPacking(b,this->carId);
 }
 
 void CarMessage::parsimUnpack(omnetpp::cCommBuffer *b)
 {
     ::WaveShortMessage::parsimUnpack(b);
     doParsimUnpacking(b,this->helloMsg);
+    doParsimUnpacking(b,this->priority);
+    doParsimUnpacking(b,this->rsuId);
+    doParsimUnpacking(b,this->carId);
 }
 
 const char * CarMessage::getHelloMsg() const
@@ -225,6 +235,36 @@ const char * CarMessage::getHelloMsg() const
 void CarMessage::setHelloMsg(const char * helloMsg)
 {
     this->helloMsg = helloMsg;
+}
+
+int CarMessage::getPriority() const
+{
+    return this->priority;
+}
+
+void CarMessage::setPriority(int priority)
+{
+    this->priority = priority;
+}
+
+const char * CarMessage::getRsuId() const
+{
+    return this->rsuId.c_str();
+}
+
+void CarMessage::setRsuId(const char * rsuId)
+{
+    this->rsuId = rsuId;
+}
+
+const char * CarMessage::getCarId() const
+{
+    return this->carId.c_str();
+}
+
+void CarMessage::setCarId(const char * carId)
+{
+    this->carId = carId;
 }
 
 class CarMessageDescriptor : public omnetpp::cClassDescriptor
@@ -292,7 +332,7 @@ const char *CarMessageDescriptor::getProperty(const char *propertyname) const
 int CarMessageDescriptor::getFieldCount() const
 {
     omnetpp::cClassDescriptor *basedesc = getBaseClassDescriptor();
-    return basedesc ? 1+basedesc->getFieldCount() : 1;
+    return basedesc ? 4+basedesc->getFieldCount() : 4;
 }
 
 unsigned int CarMessageDescriptor::getFieldTypeFlags(int field) const
@@ -305,8 +345,11 @@ unsigned int CarMessageDescriptor::getFieldTypeFlags(int field) const
     }
     static unsigned int fieldTypeFlags[] = {
         FD_ISEDITABLE,
+        FD_ISEDITABLE,
+        FD_ISEDITABLE,
+        FD_ISEDITABLE,
     };
-    return (field>=0 && field<1) ? fieldTypeFlags[field] : 0;
+    return (field>=0 && field<4) ? fieldTypeFlags[field] : 0;
 }
 
 const char *CarMessageDescriptor::getFieldName(int field) const
@@ -319,8 +362,11 @@ const char *CarMessageDescriptor::getFieldName(int field) const
     }
     static const char *fieldNames[] = {
         "helloMsg",
+        "priority",
+        "rsuId",
+        "carId",
     };
-    return (field>=0 && field<1) ? fieldNames[field] : nullptr;
+    return (field>=0 && field<4) ? fieldNames[field] : nullptr;
 }
 
 int CarMessageDescriptor::findField(const char *fieldName) const
@@ -328,6 +374,9 @@ int CarMessageDescriptor::findField(const char *fieldName) const
     omnetpp::cClassDescriptor *basedesc = getBaseClassDescriptor();
     int base = basedesc ? basedesc->getFieldCount() : 0;
     if (fieldName[0]=='h' && strcmp(fieldName, "helloMsg")==0) return base+0;
+    if (fieldName[0]=='p' && strcmp(fieldName, "priority")==0) return base+1;
+    if (fieldName[0]=='r' && strcmp(fieldName, "rsuId")==0) return base+2;
+    if (fieldName[0]=='c' && strcmp(fieldName, "carId")==0) return base+3;
     return basedesc ? basedesc->findField(fieldName) : -1;
 }
 
@@ -341,8 +390,11 @@ const char *CarMessageDescriptor::getFieldTypeString(int field) const
     }
     static const char *fieldTypeStrings[] = {
         "string",
+        "int",
+        "string",
+        "string",
     };
-    return (field>=0 && field<1) ? fieldTypeStrings[field] : nullptr;
+    return (field>=0 && field<4) ? fieldTypeStrings[field] : nullptr;
 }
 
 const char **CarMessageDescriptor::getFieldPropertyNames(int field) const
@@ -410,6 +462,9 @@ std::string CarMessageDescriptor::getFieldValueAsString(void *object, int field,
     CarMessage *pp = (CarMessage *)object; (void)pp;
     switch (field) {
         case 0: return oppstring2string(pp->getHelloMsg());
+        case 1: return long2string(pp->getPriority());
+        case 2: return oppstring2string(pp->getRsuId());
+        case 3: return oppstring2string(pp->getCarId());
         default: return "";
     }
 }
@@ -425,6 +480,9 @@ bool CarMessageDescriptor::setFieldValueAsString(void *object, int field, int i,
     CarMessage *pp = (CarMessage *)object; (void)pp;
     switch (field) {
         case 0: pp->setHelloMsg((value)); return true;
+        case 1: pp->setPriority(string2long(value)); return true;
+        case 2: pp->setRsuId((value)); return true;
+        case 3: pp->setCarId((value)); return true;
         default: return false;
     }
 }
